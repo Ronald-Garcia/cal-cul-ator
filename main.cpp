@@ -1,8 +1,11 @@
 #include <iostream>
+#include "game.h"
+#include "entity.h"
+
 
 int main(void) {
 
-    std::cout << "test" << std::endl;
+
 
     return 0;
 }

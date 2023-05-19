@@ -1,8 +1,8 @@
-
-class Game {
+class Item {
 
     private:
-    
+
     public:
-        
+
+
 };
