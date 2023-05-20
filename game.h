@@ -9,13 +9,24 @@ class Game {
     private:
         
         Player player;
+        Area area;
         std::vector<Entity*> rendered_entities;
         std::map<std::string, bool> unlocked_entities;
         std::vector<std::string> all_entities;
-        Area area;
         
     public:
-        Game() : area(Area::PREGAME) { 
+        Game() : area(Area::PREGAME), all_entities(), unlocked_entities() { 
+
+            all_entities.push_back("1");
+            all_entities.push_back("2");
+            all_entities.push_back("3");
+            all_entities.push_back("4");
+            all_entities.push_back("5");
+            all_entities.push_back("6");
+            all_entities.push_back("7");
+            all_entities.push_back("8");
+            all_entities.push_back("9");
+
             unlocked_entities["1"] = true;
             unlocked_entities["2"] = true;
             unlocked_entities["3"] = true;

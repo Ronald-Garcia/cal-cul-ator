@@ -1,10 +1,11 @@
 #include <iostream>
 #include "game.h"
-#include "entity.h"
 
 using std::cout;
 using std::cin;
 using std::endl;
+
+Game* load_game(std::string file_name);
 
 int main(int argc, char* argv[] ) {
 
@@ -12,8 +13,6 @@ int main(int argc, char* argv[] ) {
         std::cerr << "[Main] Too many args! Usage: ./main [optional save file]" << endl;
         return 1;
     }
-
-
 
     cout << "Welcome to CAL-CUL-ATOR!" << endl;
     cout << "[1] - Play" << endl;
@@ -63,5 +62,6 @@ Game* load_game(std::string file_name) {
         return new Game();
     } else {
         // TODO: create saving and loading function
+        return new Game();
     }
 }

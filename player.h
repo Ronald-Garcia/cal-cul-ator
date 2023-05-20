@@ -2,8 +2,8 @@
 #include <vector>
 #include <cmath>
 
-#include "inventory.h"
 #include "entity.h"
+#include "inventory.h"
 
 class Player : public Entity {
 
@@ -15,6 +15,9 @@ class Player : public Entity {
 
     public:
 
+        Player() : Entity(), name("Unnamed") { }
+
+        ~Player() { }
 
         int get_level() { return (int) log10(this->get_xp()); }
 

@@ -5,5 +5,5 @@ void Player::attack(Entity* other) {
 }
 
 void Player::handle_attack(Entity* attacker) {
-    
+    attacker->attack(this);
 }

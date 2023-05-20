@@ -5,17 +5,19 @@ class Entity {
     private:
         double health; 
         double defense;        
-        double attack;       
+        double strength;       
         double xp;
         std::string display;
 
     public:
 
-        Entity() { }
+        Entity() : health(0.0), defense(0.0), strength(0.0), xp(0.0), display("N/A") { }
 
-        virtual void attack(Entity* other);
+        virtual ~Entity() { }
 
-        virtual void handle_attack(Entity* attacker);
+        virtual void attack(Entity* other) = 0;
+
+        virtual void handle_attack(Entity* attacker) = 0;
 
         double get_hp() { return health; }
 
