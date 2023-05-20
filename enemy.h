@@ -1,4 +1,5 @@
-#include "entity.h" 
+#include "entity.h"
+#include "player.h"
 
 class Enemy : public Entity {
 
@@ -7,6 +8,7 @@ class Enemy : public Entity {
         double defense;        
         double strength;       
         double xp;
+
     public:
         
         Enemy(double hp, double df, double atk, double xp, std::string display) 
@@ -16,10 +18,14 @@ class Enemy : public Entity {
             , strength(atk)
             , xp(xp) { }
 
-        virtual void attack(Entity* other) const = 0;
 
-        virtual void handle_attack(Entity* other) const = 0;
+        double get_attack() { return strength; }
 
+        void adjust_health(double adjustment) { health += adjustment; }
 
+        bool is_dead() { return health <= 0.00001; }
 
+        virtual void attack(Player& victim) const = 0;
+
+        virtual void take_damage(Player& attacker);
 };

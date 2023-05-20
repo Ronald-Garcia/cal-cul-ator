@@ -9,20 +9,28 @@ class Player : public Entity {
 
     private:
 
+        double health; 
+        double defense;        
+        double strength;       
+        double xp;
+
         std::string name;
         Inventory inventory;
 
-
     public:
 
-        Player() : Entity(), name("Unnamed") { }
+        Player(double hp, double df, double atk, std::string display) 
+            : Entity(display)
+            , health(hp)
+            , defense(df)
+            , strength(atk)
+            , xp(0) { }
 
         ~Player() { }
 
-        int get_level() { return (int) log10(this->get_xp()); }
+        double get_attack() { return strength; }
 
-        void attack(Entity* other);
+        void take_damage(double attack);
 
-        void handle_attack(Entity* attacker);
-
+        bool game_over() { return health <= 0.00001; }
 };

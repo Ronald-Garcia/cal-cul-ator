@@ -4,12 +4,11 @@
 
 class Entity {
 
-    protected:
-        Entity(std::string disp) : display(disp) { }
-
     private:
         std::string display;
     public:
+
+        Entity(std::string disp) : display(disp) { }
 
         virtual ~Entity() { }
 
