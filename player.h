@@ -20,4 +20,6 @@ class Player : public Entity {
 
         void attack(Entity* other);
 
+        void handle_attack(Entity* attacker);
+
 };
