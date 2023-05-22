@@ -1,14 +1,12 @@
-#include <vector>
-#include <map>
-#include <iostream>
 #include "player.h"
+#include <map>
 
 enum class Area {PREGAME, PLAINS, FOREST, DESERT, SNOW, BEAR, BAT, SLIME, GHOST, ALIEN, CALC, SECRET};
 class Game {
 
     private:
         
-        Player player;
+        Player* player;
         Area area;
         std::vector<Entity*> rendered_entities;
         std::map<std::string, bool> unlocked_entities;
@@ -16,7 +14,9 @@ class Game {
         
     public:
     
-        Game();
+        Game(Player* player_data);
+
+        ~Game() { delete player; }
 
         void handle_area();
         void start();

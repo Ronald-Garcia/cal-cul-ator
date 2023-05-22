@@ -1,4 +1,3 @@
-
 #include <string>
 #include <iostream>
 
@@ -12,6 +11,9 @@ class Entity {
 
         virtual ~Entity() { }
 
-        friend std::ostream& operator<<(std::ostream& os, const Entity& ent);
+        std::string get_display() const { return display; } 
 
+        virtual std::ostream& print(std::ostream& os) const;
+
+        friend std::ostream& operator<<(std::ostream& os, const Entity& ent);
 };

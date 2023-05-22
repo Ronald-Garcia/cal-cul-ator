@@ -1,4 +1,3 @@
-#include "entity.h"
 #include "player.h"
 
 class Enemy : public Entity {
@@ -19,11 +18,13 @@ class Enemy : public Entity {
             , xp(xp) { }
 
 
-        double get_attack() { return strength; }
+        double get_attack() const { return strength; }
 
         void adjust_health(double adjustment) { health += adjustment; }
 
-        bool is_dead() { return health <= 0.00001; }
+        bool is_dead() const { return health <= 0.00001; }
+
+        virtual std::ostream& print(std::ostream& os) const;
 
         virtual void attack(Player& victim) const = 0;
 

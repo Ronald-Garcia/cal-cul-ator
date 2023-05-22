@@ -1,4 +1,3 @@
-#include <string>
 #include <vector>
 #include <cmath>
 
@@ -19,12 +18,15 @@ class Player : public Entity {
 
     public:
 
-        Player(double hp, double df, double atk, std::string display) 
+        Player() : Entity("N/A") { }
+
+        Player(std::string display, std::string name) 
             : Entity(display)
-            , health(hp)
-            , defense(df)
-            , strength(atk)
-            , xp(0) { }
+            , health(100)
+            , defense(0)
+            , strength(0)
+            , xp(0)
+            , name(name) { }
 
         ~Player() { }
 
@@ -33,4 +35,7 @@ class Player : public Entity {
         void take_damage(double attack);
 
         bool game_over() { return health <= 0.00001; }
+
+        virtual std::ostream& print(std::ostream& os) const;
+
 };

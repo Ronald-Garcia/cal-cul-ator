@@ -4,7 +4,8 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-Game::Game() { 
+Game::Game(Player* player_data) { 
+    player = player_data;
     area = Area::PREGAME;
     all_entities.push_back("1");
     all_entities.push_back("2");
@@ -44,13 +45,14 @@ Game::Game() {
 
 }*/
 
+// ASSUMPTION: player = nullptr
 void Game::start() {
 
     intro_text();
 
     cout << "Choose your character!" << endl;
     for (int i = 0; i < (int) all_entities.size(); i++) {
-        cout << "[" << i << "]" << " - ";
+        cout << "[" << i + 1 << "]" << " - ";
         if(unlocked_entities[all_entities[i]] == true) {
             cout << all_entities[i] << endl;
         } else {
@@ -62,8 +64,8 @@ void Game::start() {
 
     do {
 
-        if ( !(cin >> user) ) {
-            cout << "Invalid choice! Please choose one of the numbers shown above!";
+        if ( !(cin >> user) || (user <= 0 || user > (int) all_entities.size())) {
+            cout << "Invalid choice! Please choose one of the numbers shown above!" << endl;
             continue;
         }
 
@@ -76,6 +78,24 @@ void Game::start() {
 
     } while (true);
 
+    cout << "And your name?" << endl;
+
+    std::string name;
+
+    cin >> name;
+
+    std::string choice = all_entities[user - 1];
+
+    player = new Player(choice, name);
+
+    area = Area::PLAINS;
+
+    cout << "----------------------------------------------\nLoading...\n----------------------------------------------" << endl;
+    handle_plains();
+}
+
+void Game::handle_plains() {
+    cout << "You stumble into some plains..." << endl;
 }
 
 void Game::intro_text() {

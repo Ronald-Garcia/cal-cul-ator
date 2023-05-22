@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include "player.h"
 
 class Worm : public Enemy {
 
