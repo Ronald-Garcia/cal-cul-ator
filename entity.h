@@ -13,7 +13,5 @@ class Entity {
 
         std::string get_display() const { return display; } 
 
-        virtual std::ostream& print(std::ostream& os) const;
-
-        friend std::ostream& operator<<(std::ostream& os, const Entity& ent);
+        virtual void print(std::ostream& os) const;
 };

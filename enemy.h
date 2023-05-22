@@ -24,7 +24,7 @@ class Enemy : public Entity {
 
         bool is_dead() const { return health <= 0.00001; }
 
-        virtual std::ostream& print(std::ostream& os) const;
+        virtual void print(std::ostream& os) const;
 
         virtual void attack(Player& victim) const = 0;
 

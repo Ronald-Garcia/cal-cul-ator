@@ -57,9 +57,9 @@ int main(int argc, char* argv[] ) {
 
 Game* load_game(std::string file_name) {
     if (file_name == "") {
-        return new Game(nullptr);
+        return new Game(nullptr, nullptr);
     } else {
         // TODO: create saving and loading function
-        return new Game(nullptr);
+        return new Game(nullptr, nullptr);
     }
 }

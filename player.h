@@ -1,4 +1,5 @@
 #include <vector>
+#include <map>
 #include <cmath>
 
 #include "entity.h"
@@ -18,15 +19,9 @@ class Player : public Entity {
 
     public:
 
-        Player() : Entity("N/A") { }
+        static std::map<std::string, bool> unlocked_entities;
 
-        Player(std::string display, std::string name) 
-            : Entity(display)
-            , health(100)
-            , defense(0)
-            , strength(0)
-            , xp(0)
-            , name(name) { }
+        Player(std::string display, std::string name);
 
         ~Player() { }
 
@@ -36,6 +31,6 @@ class Player : public Entity {
 
         bool game_over() { return health <= 0.00001; }
 
-        virtual std::ostream& print(std::ostream& os) const;
+        virtual void print(std::ostream& os) const;
 
 };
