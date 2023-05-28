@@ -1,5 +1,4 @@
 #include "game.h"
-
 using std::cout;
 using std::cin;
 using std::endl;

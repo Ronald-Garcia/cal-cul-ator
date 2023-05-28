@@ -1,16 +1,35 @@
 class Area {
 
-    private:
+    private: 
         int progress;
+
     public:
 
-        Area() : progress(0) { }
-        Area(int cur_pos) : progress(cur_pos) { }
+        Area(int current_progress) : progress(current_progress) { }
 
-        virtual void just_entered() const = 0;
+        virtual void handle() = 0;
 
-        virtual bool step();
+        int get_progress() { return progress; }
 
-        virtual bool is_done();
+        void increment() { progress++; }
+
+};
+
+class Plains : public Area {
+
+    private:
+        const int SIZE = 500;
+
+    public:
+
+        Plains() : Area(0) { }
+
+        Plains(int cur_progress) : Area(cur_progress) { }
+
+        void handle();
+
+        void just_entered();
+        
+        void step();
 
 };
