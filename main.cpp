@@ -35,6 +35,7 @@ int main(int argc, char* argv[] ) {
         
         case 1:
             game->start();
+            game->handle_area();
         break;
         case 2: 
 

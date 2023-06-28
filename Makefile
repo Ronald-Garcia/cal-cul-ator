@@ -3,8 +3,8 @@ CONSERVATIVE_FLAGS = -std=c++14 -Wall -Wextra -pedantic
 DEBUGGING_FLAGS = -g -O0
 CXXFLAGS = $(CONSERVATIVE_FLAGS) $(DEBUGGING_FLAGS)
 
-main: main.o game.o player.o worm.o entity.o
-	$(CXX) -o main main.o game.o player.o worm.o entity.o
+main: main.o game.o player.o worm.o entity.o area.o
+	$(CXX) -o main main.o game.o player.o worm.o entity.o area.o
 
 main.o: main.cpp
 	$(CXX) -c main.cpp $(CXXFLAGS)
@@ -20,9 +20,6 @@ worm.o: worm.cpp worm.h
 
 entity.o: entity.cpp entity.h
 	$(CXX) -c entity.cpp $(CXXFLAGS)
-
-pregame.o: pregame.cpp pregame.h
-	$(CXX) -c pregame.cpp $(CXXFLAGS)
 
 area.o: area.cpp area.h
 	$(CXX) -c area.cpp $(CXXFLAGS)

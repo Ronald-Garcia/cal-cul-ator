@@ -32,4 +32,6 @@ class Plains : public Area {
         
         void step();
 
+        bool is_done() { return get_progress() >= SIZE; }
+
 };

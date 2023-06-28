@@ -1,5 +1,4 @@
 #include "game.h"
-#include "area.h"
 
 using std::cout;
 using std::endl;
@@ -20,23 +19,6 @@ Game::Game(Player* player_data, Area* area_data) {
     player = player_data;
     area = area_data;
 }
-/*void Game::handle_area() {
-
-    switch (area) {
-
-        case Area::PLAINS:
-            handle_plains();
-            break;
-        case Area::FOREST:
-            handle_forest();
-            break;
-        case Area::DESERT:
-            handle_desert();
-            break;
-
-    }
-
-}*/
 
 void Game::start() {
 
@@ -90,13 +72,8 @@ void Game::start() {
     cout << "----------------------------------------------\nLoading...\n----------------------------------------------" << endl;
 }
 
-void Game::handle_plains() {
-    cout << "You stumble into some plains..." << endl;
+void Game::handle_area() {
 
-    bool in_progress = true;
-
-    while(in_progress) {
-
-    }
+    
 
 }

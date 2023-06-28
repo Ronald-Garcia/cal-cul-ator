@@ -23,15 +23,4 @@ class Game {
         void handle_area();
         void start();
         void intro_text();
-        void handle_plains();
-        void handle_forest();
-        void handle_desert();
-        void handle_snow();
-        void handle_bear();
-        void handle_bat();
-        void handle_slime();
-        void handle_ghost();
-        void handle_alien();
-        void handle_calc();
-        void handle_secret();
 };

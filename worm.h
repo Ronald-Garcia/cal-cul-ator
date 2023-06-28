@@ -13,4 +13,6 @@ class Worm : public Enemy {
 
         void take_damage(Player& attacker);
 
+        void print(std::ostream& os) const;
+
 };
